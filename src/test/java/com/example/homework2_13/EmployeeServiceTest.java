@@ -47,7 +47,7 @@ public class EmployeeServiceTest {
         /**заполняем мапу до предела*/
         int keyCounter = 0;
         String keyFullName = "Имя";
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 7; i++) {
             keyCounter++;
             keyFullName += keyCounter;
             employeeService.getEmployees().put(keyFullName, new Employee(keyFullName, SALARY_1, DEPARTMENT_1));
@@ -65,8 +65,8 @@ public class EmployeeServiceTest {
     @Test
     public void changeEmployee(){
         employeeService.changeEmployee(FULL_NAME_1, FULL_NAME_2, SALARY_2, DEPARTMENT_2);
-        assertTrue(employeeService.getEmployees().containsKey(FULL_NAME_2));
         assertFalse(employeeService.getEmployees().containsKey(FULL_NAME_1));
+        assertTrue(employeeService.getEmployees().containsKey(FULL_NAME_2));
         assertEquals(13, employeeService.getEmployees().get(FULL_NAME_2).getId());
     }
 }
