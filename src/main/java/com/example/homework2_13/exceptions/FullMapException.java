@@ -8,3 +8,5 @@ public class FullMapException extends RuntimeException{
         super(message);
     }
 }
+
+
