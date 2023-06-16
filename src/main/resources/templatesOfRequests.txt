@@ -1,0 +1,6 @@
+http://localhost:8080/max-salary?departmentId=5
+http://localhost:8080/min-salary?departmentId=5
+http://localhost:8080/departments/allEmployeesInDept?departmentId=5
+http://localhost:8080/departments/all
+
+http://localhost:8080/employee/change?nameDeletingEmployee=Попова%20Варвара%20Богдановна&nameNewEmployee=Краснова%20Валентина%20Григорьевна&newSalary=85000&newDept=3
