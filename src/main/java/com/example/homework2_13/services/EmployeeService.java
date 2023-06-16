@@ -5,17 +5,14 @@ import com.example.homework2_13.exceptions.FullMapException;
 import org.springframework.stereotype.Service;
 
 import java.text.DecimalFormat;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 
 @Service
 public class EmployeeService {
 
-    private Map<String, Employee> employees = new HashMap<>(Map.of(
+    private Map<String, Employee> employees = new LinkedHashMap<>(Map.of(
             "Попова Варвара Богдановна",
             new Employee("Попова Варвара Богдановна", 85_000, 5),
             "Петрова Елена Павловна",
@@ -52,12 +49,13 @@ public class EmployeeService {
     }
 
 
-    public void addEmployee(String fullName, int salary, int dept) {
+    public Employee addEmployee(String fullName, int salary, int dept) {
         Employee employee = new Employee(fullName, salary, dept);
-        if (Employee.getIdCounter() > 20) {
+        if (employees.size() > 20) {
             throw new FullMapException();
         }
         employees.put(fullName, employee);
+        return employee;
     }
 
     public void removeEmployee(String fullName) {

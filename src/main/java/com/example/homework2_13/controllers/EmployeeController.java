@@ -25,8 +25,8 @@ public class EmployeeController {
     public String add(@RequestParam("name") String name,
                       @RequestParam("salary") int salary,
                       @RequestParam("dept") int dept) {
-        es.addEmployee(name, salary, dept);
-        return "<h1>Сотрудник " + name + " добавлен</h1>";
+//        es.addEmployee(name, salary, dept);
+        return "<h1>Сотрудник " + es.addEmployee(name, salary, dept) + " добавлен</h1>";
     }
 
     @GetMapping("/change")
